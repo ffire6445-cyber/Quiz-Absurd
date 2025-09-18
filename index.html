@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pertanyaan Absurd — Quiz</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="title-wrap">
+        <h1>Pertanyaan Absurd</h1>
+        <p class="subtitle">Bisa menyelesaikan gamenya? MUSTAHIL!</p>
+      </div>
+      <div class="controls-top">
+        <button id="resetProgress" class="small secondary">Reset Progress</button>
+        <button id="muteBtn" class="small secondary">Mute</button>
+      </div>
+    </header>
+
+    <main class="main-grid">
+      <aside class="sidebar">
+        <h2>Kategori</h2>
+        <div id="categories" class="categories"></div>
+        <p class="muted note">Kategori berurutan. Selesaikan semua soal di ketegori sebelumnya untuk membuka kategori berikutnya. </p>
+      </aside>
+
+      <section class="panel">
+        <div id="menuRow" class="menu-row">
+          <div id="crumb">Pilih kategori</div>
+          <div id="status">Siap</div>
+        </div>
+
+        <div id="questionArea" class="card hidden">
+          <div class="q-top">
+            <div>
+              <div id="questionText" class="question-text">—</div>
+              <div id="hintText" class="hint muted"></div>
+            </div>
+            <div id="levelInfo" class="muted level-info">Level</div>
+          </div>
+
+          <div id="letterContainer" class="letter-container"></div>
+
+          <div class="actions">
+            <button id="enterBtn" class="btn primary" disabled>ENTER</button>
+            <button id="backBtn" class="btn secondary">Kembali</button>
+            <div id="progressText" class="muted progress-text"></div>
+          </div>
+
+          <div class="footer">
+            <div id="savedText" class="muted">Progres: belum tersimpan</div>
+          </div>
+        </div>
+
+        <div id="completeBox" class="card hidden">
+          <h3 id="completeTitle" class="accent">Kategori Selesai!</h3>
+          <p id="completeMsg" class="muted"></p>
+          <div style="margin-top:12px;">
+            <button id="backToMenu" class="btn secondary">Kembali ke Menu</button>
+            <button id="nextCategory" class="btn primary" style="display:none;margin-left:8px;">Buka Kategori Berikutnya</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bottombar muted">Tips: Jika musik tidak berjalan, pencet tombol "Mute" di pojok kanan atas satu kali untuk menjalankannya, pencet lagi untuk mematikannya.</footer>
+  </div>
+
+  <!-- audio file must be in same folder -->
+  <audio id="bgAudio" src="/Audio.html/Instrumen.mp3"  loop autoplay></audio>
+
+  <script src="main.js"></script>
+</body>
+</html>

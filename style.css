@@ -1,0 +1,120 @@
+:root{
+  --bg: #0b0f14;
+  --panel: #0f1720;
+  --muted:#9aa6b2;
+  --accent:#ffb86b;
+  --accent-2:#7ce7c6;
+  --success:#2ecc71;
+  --danger:#ff6b6b;
+  --glass: rgba(255,255,255,0.03);
+  --card: rgba(255,255,255,0.02);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, "Segoe UI", Roboto, system-ui, -apple-system;
+  background: radial-gradient(1200px 600px at 0% 0%, rgba(34,40,49,0.6), transparent), linear-gradient(180deg,var(--bg),#07080a 120%);
+  color: #e6f0f2;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  display:flex;
+  justify-content:center;
+  align-items:flex-start;
+  padding:28px;
+}
+
+/* app shell */
+.app{
+  width:100%;
+  max-width:1100px;
+}
+
+/* topbar */
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:18px;
+}
+.title-wrap h1{
+  margin:0;
+  color:var(--accent);
+  font-size:22px;
+  letter-spacing:0.6px;
+}
+.subtitle{margin:4px 0 0 0;color:var(--muted);font-size:13px}
+
+.controls-top{display:flex;gap:8px;align-items:center}
+
+/* small buttons */
+.small{
+  padding:8px 10px;border-radius:8px;border:none;background:transparent;color:var(--muted);cursor:pointer;
+}
+.small.secondary{border:1px solid rgba(255,255,255,0.03)}
+
+/* main grid */
+.main-grid{
+  display:grid;
+  grid-template-columns: 320px 1fr;
+  gap:18px;
+}
+
+/* sidebar */
+.sidebar{
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+  border-radius:12px;padding:16px;border:1px solid rgba(255,255,255,0.03);
+  box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+}
+.sidebar h2{margin:0 0 10px 0;color:var(--muted)}
+.categories{display:flex;flex-direction:column;gap:10px}
+.cat-btn{
+  display:flex;justify-content:space-between;align-items:center;padding:10px;border-radius:10px;background:var(--card);
+  cursor:pointer;border:1px solid rgba(255,255,255,0.02);transition:all .18s ease;font-weight:700;
+}
+.cat-btn.locked{opacity:0.45;cursor:not-allowed;filter:grayscale(0.2)}
+.cat-btn:hover:not(.locked){transform:translateY(-4px);box-shadow:0 10px 30px rgba(0,0,0,0.5)}
+
+/* panel */
+.panel{background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));border-radius:12px;padding:18px;min-height:360px;border:1px solid rgba(255,255,255,0.03);box-shadow:0 10px 40px rgba(2,6,23,0.6)}
+.menu-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+#crumb{font-weight:700}
+.muted{color:var(--muted)}
+.card{padding:14px;border-radius:10px;background:rgba(255,255,255,0.01);border:1px solid rgba(255,255,255,0.02)}
+.hidden{display:none}
+
+/* question area */
+.q-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.question-text{font-size:20px;font-weight:700;color:#f5fbfb}
+.level-info{font-size:13px;color:var(--muted)}
+
+.letter-container{margin-top:14px;display:flex;flex-wrap:wrap;gap:10px}
+
+/* single-letter input */
+.letter{
+  width:58px;height:64px;border-radius:10px;border:none;background:rgba(255,255,255,0.02);color:#fff;font-size:28px;
+  text-align:center;font-weight:800;text-transform:uppercase;outline:none;box-shadow:0 6px 18px rgba(2,6,23,0.5),inset 0 -6px 14px rgba(0,0,0,0.25)
+}
+.letter::placeholder{color:rgba(255,255,255,0.12)}
+
+/* actions */
+.actions{display:flex;gap:10px;align-items:center;margin-top:12px}
+.btn{padding:10px 14px;border-radius:10px;border:none;cursor:pointer;font-weight:700}
+.btn.primary{background:linear-gradient(180deg,var(--accent), #ff9a3d);color:#061117}
+.btn.secondary{background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,0.03)}
+
+/* feedback states */
+.correct{animation:pop .28s;background:linear-gradient(90deg, rgba(46,125,50,0.95), rgba(46,125,50,0.8));color:white;border-radius:8px;padding:6px 8px}
+.wrong{animation:shake .28s;background:linear-gradient(90deg, rgba(198,40,40,0.95), rgba(198,40,40,0.85));color:white;border-radius:8px;padding:6px 8px}
+
+@keyframes pop{0%{transform:scale(.98)}50%{transform:scale(1.03)}100%{transform:scale(1)}}
+@keyframes shake{0%{transform:translateX(0)}25%{transform:translateX(-6px)}50%{transform:translateX(6px)}75%{transform:translateX(-4px)}100%{transform:translateX(0)}}
+
+/* footer */
+.bottombar{margin-top:1px;text-align:center;font-size:10px;color:var(--muted)}
+
+/* responsive */
+@media (max-width:900px){
+  .main-grid{grid-template-columns:1fr}
+  .sidebar{order:2}
+}
